@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>rWeather</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body class="body-container" style="<%= backgroundimage %>">
+    <div class="container">
+      <fieldset>
+        <form action="/weather" method="get">
+          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+      </fieldset>
+      <div class="weatherStation">
+        <% if(weather !== null) { %>
+          <p id="degree"><%= degree %></p>
+          <p id="city"><%= city %></p>
+          <p id="weather"><%= weather %></p>
+        <% } %>
+
+        <% if(error !== null) { %>
+          <p id="error"><%= error %></p>
+        <% } %>
+      </div>
+      <div class="text-center all-icon">
+        <div class="icon thunder-storm <%= thunderstorm %> thunder-storm">
+            <div class="cloud"></div>
+            <div class="lightning">
+              <div class="bolt"></div>
+              <div class="bolt"></div>
+            </div>
+        </div>
+        <div class="icon cloudy <%= clouds %> clouds">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+        <div class="icon flurries <%= snow %> snowy">
+            <div class="cloud"></div>
+            <div class="snow">
+              <div class="flake"></div>
+              <div class="flake"></div>
+            </div>
+          </div>
+        <div class="icon sunny <%= clear %> clear">
+            <div class="sun">
+              <div class="rays"></div>
+            </div>
+        </div>
+        <div class="icon rainy <%= rain %> rain">
+            <div class="cloud"></div>
+            <div class="raindroplets"></div>
+        </div>
+      </div>
+    </div>
+    <audio <%= sound %> <%= attribute %>>
+      <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    </audio>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </body>
+</html>
